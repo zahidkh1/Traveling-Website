@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Trips & Flights</title>
+    <style>
+        :root {
+            --primary-color: #ffcc00;
+            --secondary-color: #333;
+            --background-color: rgba(0, 0, 0, 0.8);
+            --text-color: white;
+            --hover-color: #e6b800;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        .f1 {
+            background-image: url(image/dash-back.avif);
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .f1 h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .e1 {
+            background-image: url(image/dash.jpg);
+            height: 10vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .e1 h1{
+            font-size: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            animation: slideIn 1s ease-in-out 0.5s;
+        }
+        .f1 p {
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            animation: slideIn 1s ease-in-out 0.5s;
+        }
+        .trips {
+            background-color: var(--background-color);
+            padding: 50px 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out 1s;
+        }
+        .trips h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .trips p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        .photos {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            gap: 20px; 
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .photos img {
+            width: 100%;
+            max-width: 300px; 
+            height: auto; 
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+            opacity: 0; /
+        }
+        .photos img.visible {
+            opacity: 1; 
+        }
+        .photos img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+        }
+        .ratingss {
+            background-color: var(--secondary-color);
+            padding: 50px 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out 1.5s;
+        }
+        .ratingss h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .ratings {
+            margin: 20px 0;
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        .ratings:nth-child(1) {
+            animation-delay: 2s;
+        }
+        .ratings:nth-child(2) {
+            animation-delay: 2.5s;
+        }
+        .ratings:nth-child(3) {
+            animation-delay: 3s;
+        }
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 20px 0;
+            animation: slideUp 1s ease-in-out 2s; 
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .button {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .button:hover {
+            background-color: var(--hover-color);
+            transform: scale(1.1);
+        }
+        @media (max-width: 768px) {
+            .photos {
+                flex-direction: column;
+            }
+            .f1 h1 {
+                font-size: 2rem;
+            }
+            .f1 p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="e1">
+        <a href="Dashboard.html" style="text-decoration: none; color: #333;">
+        <h1>Dashboard</h1>
+    </a>
+    </div>
+    <div class="f1">
+        <h1>👋 "Welcome back,</h1>
+        <p>Zahid Khan!</p>
+    </div>
+    <div class="trips">
+        <h2>Bookings Overview</h2>
+        <p>My Bookings:</p>
+        <div class="photos">
+            <a href="arunachal.html" style="text-decoration: none; color: #e6b800;"><img src="image/trip-arunachal.webp" alt="Trip 1" class="visible"><br><br>Trip to Arunachal Pradesh</a>
+            <a href="assam.html" style="text-decoration: none; color: #e6b800;"><img src="image/trip-assam.jpg" alt="Trip 2" class="visible"><br><br>Trip to Assam</a>
+            <a href="goa.html" style="text-decoration: none; color: #e6b800;"><img src="image/trip-goa.jpg" alt="Trip 3" class="visible"><br><br>Trip to Goa</a>
+            <a href="kashmir.html" style="text-decoration: none;color: #e6b800;"><img src="image/trip-kashmir.jpg" alt="Trip 4" class="visible"><br><br>Trip to kashmir</a>
+            <a href="kerela.html" style="text-decoration: none; color: #e6b800;"><img src="image/trip-kerela.jpg" alt="Trip 6" class="visible"><br><br>Trip to Kerela</a>
+            <a href="maharastra.html" style="text-decoration: none; color: #e6b800;"><img src="image/trip-maharashtra.jpg" alt="Trip 7" class="visible"><br><br>Trip to Maharashtra</a>
+            <a href="telengana.html" style="text-decoration: none; color: #e6b800;"><img src="image/trip-telengana.webp" alt="Trip 8" class="visible"><br><br>Trip to Telengana</a>
+        </div>
+    </div>
+    <div class="ratingss">
+        <h2>User ratingss</h2>
+        <div class="ratings">🌟🌟🌟🌟🌟"An Unforgettable Experience!"
+            "I booked my dream vacation through this site, and everything was perfect! The recommendations were spot-on, and the customer support was excellent. Can't wait for my next trip!" – Emma R.</div>
+        <div class="ratings">🌟🌟🌟🌟⭐
+            "Great Deals & Easy Booking"
+            "Found amazing deals on flights and hotels. The booking process was seamless, and everything went smoothly. Highly recommend!" – Jake M.</div>
+        <div class="ratings">🌟🌟🌟🌟🌟"Best Travel Site Ever!"
+            "This website made planning my honeymoon stress-free! The travel guides and suggestions were super helpful. Will definitely use it again!" – Sophia L.</div>
+        <div class="ratings">🌟🌟🌟⭐️⭐️
+            "Good, But Room for Improvement"
+            "The site is user-friendly, and I got a great deal on my hotel. However, I wish there were more customer reviews on some destinations." – Mark T.</div>
+        <div class="ratings">🌟🌟🌟🌟🌟
+            "Highly Recommended!"
+            "I discovered hidden gems I wouldn’t have found otherwise. The blog section is a must-read for any traveler!" – Natalie W.</div>
+        <button class="button">Share Your Experience</button>
+    </div>
+    <footer>
+        <p>&copy; 2025 Indian Airlines. All rights reserved.</p>
+    </footer>
+</body>
+</html>

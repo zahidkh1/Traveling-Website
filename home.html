@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Excursion Hub</title>
+        <style>    
+        :root {
+            --color-soft-beige: #F8EDE3;
+            --color-light-sand: #FFF5E4;
+            --color-primary: #ff6f00; 
+            --color-secondary: #ffe0b2;
+            --spacing-small: 8px;
+            --spacing-medium: 16px;
+            --spacing-large: 24px;
+        }
+        body {
+            background-color: var(--color-soft-beige);
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        #header {
+            background-color: var(--color-light-sand);
+            color: #50271e;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 0px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        #logo span {
+            font-size: 44px;
+            font-weight: bold;
+        }
+        #logo img {
+            height: 54px;
+            margin-right: 10px;
+            opacity: 0; /* Start hidden */
+            animation: fadeIn 1s ease-in-out forwards; /* Fade in effect */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #logo img:hover {
+            transform: scale(1.1); /* Scale on hover */
+            transition: transform 0.3s ease; /* Smooth transition */
+        }
+        #nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+        #nav-menu a {
+            text-decoration: none;
+            color: #4e342e;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        #nav-menu a:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+        .victor {
+            height: 100vh;
+            background-image: url('image/main background.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 200px 40px 20px;
+            box-sizing: border-box;
+        }
+        .flight-box {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            margin: var(--spacing-medium) auto;
+            display: flex;
+            flex-direction: column;
+            animation: slideInFromRight 0.5s ease-in-out; 
+        }
+        @keyframes slideInFromRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .types {
+            display: flex;
+            gap: 60px;
+        }
+        .types label {
+            font-weight: bold;
+            color: #4e342e;
+        }
+        .a1 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .b1 {
+            flex: 1 1 18%;
+            max-width: 18%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            background: white;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 13px;
+            transition:background-color 0.4s ease-in-out;
+        }
+        .b1:hover {
+            font-size : 24px;
+        }
+        .b1 input,
+        .b1 select {
+            width: 100%;
+            font-size: 14px;
+        }
+        .b1 input:hover,
+        .b1 select:hover {
+            border-color: var(--color-primary); 
+            box-shadow: 0 0 5px var(--color-primary);
+        }
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .button-container button {
+            background-color: var(--color-primary);
+            color : rgb(97, 14, 14);
+            border: none;
+            padding: 10px 30px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .button-container button:hover {
+            background-color: var(--color-secondary);
+            transform: scale(1.1);
+        }
+        .offer {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            margin: var(--spacing-medium) auto;
+            max-width: 900px;
+            animation: slideUp 0.5s ease-in-out;
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .offer h2 {
+            font-size: 2.4rem;
+            color: #4e342e;
+            margin-bottom: 20px;
+        }
+        .offer p {
+            font-size: 1.2rem;
+            color: #6d4c41;
+            line-height: 1.6;
+            margin: 0 auto 30px;
+        }
+        .Destination-places {
+            margin-left: 300px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .Destination-places img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .Destination-places img:hover {
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .b1 {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+            .types {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        .reviews {
+            background-color: var(--secondary-color);
+            padding: 50px 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out 1.5s;
+        }
+        .reviews h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .review {
+            margin: 20px 0;
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        .review:nth-child(1) {
+            animation-delay: 2s;
+        }
+        .review:nth-child(2) {
+            animation-delay: 2.5s;
+        }
+        .review:nth-child(3) {
+            animation-delay: 3s;
+        }
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 20px 0;
+            animation: slideUp 1s ease-in-out 2s; 
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .button {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .button:hover {
+            background-color: var(--hover-color);
+            transform: scale(1.1);
+        }
+        @media (max-width: 768px) {
+            .image-gallery {
+                flex-direction: column;
+            }
+            .parallax h1 {
+                font-size: 2rem;
+            }
+            .parallax p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <img src="image/logo.gif" alt="Logo">
+                <span>Excursion Hub</span>
+            </div>
+            <div id="nav-menu">
+                <a href="./login_page.html" target="_blank">Login</a>
+                <a href="./register_page.html" target="_blank">Register</a>
+                <a href="Dashboard.html" target="_blank">Dashboard</a>
+            </div>
+        </div>
+        <div class="victor">
+            <h1>Flight &#9992;</h1>
+            <div class="flight-box">
+                <div class="form">
+                    <div class="types">
+                        <label><input type="radio" name="types" value="one-way"
+                                checked> One Way</label>
+                        <label><input type="radio" name="types"
+                                value="round-trip"> Round Trip</label>
+                        <label><input type="radio" name="types"
+                                value="multi-city"> Multi City</label>
+                    </div>
+                    <div class="a1">
+                        <div class="b1">
+                            <label for="from">From</label>
+                            <input type="text" id="from" name="from"
+                                placeholder="Enter departure city" required>
+                        </div>
+                        <div class="b1">
+                            <label for="to">To</label>
+                            <input type="text" id="to" name="to"
+                                placeholder="Enter destination city" required>
+                        </div>
+                        <div class="b1">
+                            <label for="departure">Departure</label>
+                            <input type="date" id="departure" name="departure"
+                                required>
+                        </div>
+                        <div class="b1">
+                            <label for="return">Return</label>
+                            <input type="date" id="return" name="return"
+                                disabled>
+                        </div>
+                        <div class="b1">
+                            <label for="travel">Travellers</label>
+                            <input type="number" id="travel" name="travel"
+                                placeholder="No. of travelers" min="1" required>
+                        </div>
+                    </div>
+                    <div class="a1">
+                        <div class="b1">
+                            <label for="class">Class</label>
+                            <select id="class" name="class" required>
+                                <option value="economy">Economy</option>
+                                <option value="business">Business</option>
+                                <option value="first-class">First Class</option>
+                            </select>
+                        </div>
+                        <div class="b1">
+                            <label for="payment">Payment</label>
+                            <select id="payment" name="payment" required>
+                                <option value="cash">Cash</option>
+                                <option value="credit-card">Credit Card</option>
+                            </select>
+                        </div>
+                        <div class="b1">
+                            <label for="promo">Promo Code</label>
+                            <input type="text" id="promo" name="promo"
+                                placeholder="Enter code">
+                        </div>
+                        <div class="b1">
+                            <label for="extra savings">Extra savings</label>
+                            <select id="extra savings" name="class" required>
+                                <option value="Regular">Regular
+                                    Regular fares</option>
+                                <option value="Student
+                                Extra discounts/baggage">Student
+                                    Extra discounts/baggage</option>
+                                <option value="Senior">Senior Citizen
+                                    Up to ₹ 600 off</option>
+                                <option value="Armed Forces">Armed Forces
+                                    Up to ₹ 600 off</option>
+                                <option value="Doctor">Doctor and Nurses
+                                    Up to ₹ 600 off</option>
+                                <option value="none">None of the Above</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="offer">
+            <h2>Offers</h2>
+            <p><h4>"Unlock exclusive deals! 🎉 For a limited time only, enjoy special discounts on your favorite products. Browse our hand-picked offers that are only available to our online customers. Don't miss out—shop now and save big before it's too late!"</h4></p>
+        </div>
+        <div class="Destination-places">
+            <br><center><div class="p"></div><h1>Destination places</h1></div></center>
+            <center><h3>Click The Picture for the Booking</h3></center>
+        </div>
+        <div class="Destination-places">
+            <a href="assam.html" style="text-decoration: none;"><img src="image/Assam.jpg.avif" alt="Assam"><center>Assam</center></a>
+            <a href="arunachal.html" style="text-decoration: none;"><img src="image/FRONT-ARUNACHAL.jpeg" alt="Arunachal Pradesh"><center>Arunachal Pradesh</center></a>
+            <a href="telengana.html" style="text-decoration: none;"><img src="image/hydrabad 1st.jpg" alt="Telengana"><center>Telengana</center></a><BR></BR>
+            <a href="maharastra.html" style="text-decoration: none;"><img src="image/mumbai1st.jpg" alt="Maharashtra"><center>Maharashtra</center></a>
+            <a href="kerela.html" style="text-decoration: none;"><img src="image/front-kerela.jpeg" alt=""><center>Kerela</center></a>
+            <a href="goa.html" style="text-decoration: none;"><img src="image/fornt-goa.jpeg" alt="Goa"><center>Goa</center></a><br>
+            <a href="kashmir.html" style="text-decoration: none;"><img src="image/front-kashmir.jpeg" alt="Kashmir"><center>Kashmir</center></a>
+        </div>
+        <div class="reviews">
+            <h2>User Reviews</h2>
+            <div class="review">🌟🌟🌟🌟🌟"An Unforgettable Experience!"
+                "I booked my dream vacation through this site, and everything was perfect! The recommendations were spot-on, and the customer support was excellent. Can't wait for my next trip!" – Emma R.</div>
+            <div class="review">🌟🌟🌟🌟⭐
+                "Great Deals & Easy Booking"
+                "Found amazing deals on flights and hotels. The booking process was seamless, and everything went smoothly. Highly recommend!" – Jake M.</div>
+            <div class="review">🌟🌟🌟🌟🌟
+                "Best Travel Site Ever!"
+                "This website made planning my honeymoon stress-free! The travel guides and suggestions were super helpful. Will definitely use it again!" – Sophia L.</div>
+            <div class="review">🌟🌟🌟⭐️⭐️
+                "Good, But Room for Improvement"
+                "The site is user-friendly, and I got a great deal on my hotel. However, I wish there were more customer reviews on some destinations." – Mark T.</div>
+            <div class="review">🌟🌟🌟🌟🌟
+                "Highly Recommended!"
+                "I discovered hidden gems I wouldn’t have found otherwise. The blog section is a must-read for any traveler!" – Natalie W.</div>
+            <button class="button"><a href="review.html" style="text-decoration: none; color: rgb(122, 22, 42);"><h1>Share Your Experience</h1></a></button>
+        </div>
+        <footer>
+            <p>&copy; 2025 Excursion Hub. All rights reserved by Zahid.</p>
+        </footer>
+    </body>
+</html>
