@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excursion Hub-Login Page</title>
+    <style>
+        
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        div.a1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-image: url('image/log.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(8px);
+            animation: fadeIn 1s ease-in-out;
+            box-shadow: 40px 40px rgba(0, 0, 0, 0.3);
+        }
+        div.b1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 40px;
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            animation: slideIn 0.5s ease-in-out;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            opacity: 0.7;
+        }
+        div.b1:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+            animation: shake 0.3s ease-in-out;
+        }
+        @keyframes shake {
+            0% { transform: translate(-50%, -50%); }
+            25% { transform: translate(-48%, -50%); }
+            50% { transform: translate(-50%, -48%); }
+            75% { transform: translate(-52%, -50%); }
+            100% { transform: translate(-50%, -50%); }
+        }
+        div.b1 h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input:focus {
+            border-color: purple;
+            outline: nb1;
+            box-shadow: 0 0 5px purple, 0 0 10px purple; 
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: purple;
+            color: white;
+            border: nb1;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        button:hover {
+            background-color: white;
+            color: purple;
+            transform: scale(1.05);
+            box-shadow: 0 0 5px purple, 0 0 10px purple; 
+        }
+        label {
+            font-size: 16px;
+            color: #333;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translate(-50%, -60%); opacity: 0; }
+            to { transform: translate(-50%, -50%); opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="a1"></div>
+<div class="b1" style="animation: slideInFromRight 0.5s ease-in-out;">
+
+        <h2>Login</h2>
+        <form action="./home_page.html">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+<button type="submit" style="animation: slideUp 0.5s ease-in-out;"><a href="home.html" style="text-decoration:none; color: black;">Submit</a></button>
+
+        </form>
+    </div>
+</body>
+</html>

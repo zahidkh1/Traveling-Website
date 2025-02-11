@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        :root {
+        --color-soft-beige: #F8EDE3;
+        --color-light-sand: #FFF5E4;
+        --color-primary: #ff6f00; 
+        --color-secondary: #ffe0b2;
+        --spacing-small: 8px;
+        --spacing-medium: 16px;
+        --spacing-large: 24px;
+    }
+        #nav-menu a:hover {
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
+    }
+    .victor {
+        height: 100vh;
+        background-image: url('image/BACK-GOA.jpeg');
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 200px 40px 20px;
+        box-sizing: border-box;
+    }
+    .flight-box {
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        max-width: 900px;
+        margin: var(--spacing-medium) auto;
+        display: flex;
+        flex-direction: column;
+        animation: slideInFromRight 0.5s ease-in-out; 
+    }
+    @keyframes slideInFromRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .types {
+        display: flex;
+        gap: 60px;
+    }
+    .types label {
+        font-weight: bold;
+        color: #4e342e;
+    }
+    .a1 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .b1 {
+        flex: 1 1 18%;
+        max-width: 18%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: white;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 13px;
+        transition:background-color 0.4s ease-in-out;
+    }
+    .b1:hover {
+        font-size : 24px;
+    }
+    .b1 input,
+    .b1 select {
+        width: 100%;
+        font-size: 14px;
+    }
+    .b1 input:hover,
+    .b1 select:hover {
+        border-color: var(--color-primary); 
+        box-shadow: 0 0 5px var(--color-primary);
+    }
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .button-container button {
+        background-color: var(--color-primary);
+        color : rgb(107, 87, 87);
+        border: none;
+        padding: 10px 30px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .button-container button:hover {
+        background-color: var(--color-secondary);
+        transform: scale(1.1);
+    }
+    .offer {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        padding: 50px 20px;
+        text-align: center;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        margin: var(--spacing-medium) auto;
+        max-width: 900px;
+        animation: slideUp 0.5s ease-in-out;
+    }
+    @keyframes slideUp {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    .offer h2 {
+        font-size: 2.4rem;
+        color: #4e342e;
+        margin-bottom: 20px;
+    }
+    .offer p {
+        font-size: 1.2rem;
+        color: #6d4c41;
+        line-height: 1.6;
+        margin: 0 auto 30px;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="victor">
+            <h1 style="color: #F8EDE3;">Book Your Desire Trip in Goa</h1>
+            <div class="flight-box">
+                <div class="form">
+                    <div class="types">
+                        <label><input type="radio" name="types" value="one-way"
+                                checked> One Way</label>
+                        <label><input type="radio" name="types"
+                                value="round-trip"> Round Trip</label>
+                        <label><input type="radio" name="types"
+                                value="multi-city"> Multi City</label>
+                    </div>
+                    <div class="a1">
+                        <div class="b1">
+                            <label for="from">From</label>
+                            <input type="text" id="from" name="from"
+                                placeholder="Enter departure city" required>
+                        </div>
+                        <div class="b1">
+                            <label for="to">To Goa</label>
+                            <input type="text" id="to" name="to"
+                                placeholder="Enter destination city" required>
+                        </div>
+                        <div class="b1">
+                            <label for="departure">Departure</label>
+                            <input type="date" id="departure" name="departure"
+                                required>
+                        </div>
+                        <div class="b1">
+                            <label for="return">Return</label>
+                            <input type="date" id="return" name="return"
+                                disabled>
+                        </div>
+                        <div class="b1">
+                            <label for="travel">Travellers</label>
+                            <input type="number" id="travel" name="travel"
+                                placeholder="No. of travelers" min="1" required>
+                        </div>
+                    </div>
+                    <div class="a1">
+                        <div class="b1">
+                            <label for="class">Class</label>
+                            <select id="class" name="class" required>
+                                <option value="economy">Economy</option>
+                                <option value="business">Business</option>
+                                <option value="first-class">First Class</option>
+                            </select>
+                        </div>
+                        <div class="b1">
+                            <label for="payment">Payment</label>
+                            <select id="payment" name="payment" required>
+                                <option value="cash">Cash</option>
+                                <option value="credit-card">Credit Card</option>
+                            </select>
+                        </div>
+                        <div class="b1">
+                            <label for="promo">Promo Code</label>
+                            <input type="text" id="promo" name="promo"
+                                placeholder="Enter code">
+                        </div>
+                        <div class="b1">
+                            <label for="extra savings">Extra savings</label>
+                            <select id="extra savings" name="class" required>
+                                <option value="Regular">Regular
+                                    Regular fares</option>
+                                <option value="Student
+                            Extra discounts/baggage">Student
+                                    Extra discounts/baggage</option>
+                                <option value="Senior">Senior Citizen
+                                    Up to ₹ 600 off</option>
+                                <option value="Armed Forces">Armed Forces
+                                    Up to ₹ 600 off</option>
+                                <option value="Doctor">Doctor and Nurses
+                                    Up to ₹ 600 off</option>
+                                <option value="none">None of the Above</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="back">
+        <div
+            class="text"><h1><center>GOA</center></h1><br><center>
+
+                <h1><center>About</center></h1>
+                <h3>Goa is a state in western India with coastlines stretching
+                    along the Arabian Sea. Its long history as a Portuguese
+                    colony prior to 1961 is evident in its preserved
+                    17th-century churches and the area’s tropical spice
+                    plantations. Goa is also known for its beaches, ranging from
+                    popular stretches at Baga and Palolem to those in laid-back
+                    fishing villages such as Agonda.</h3></center></p><center>
+        </div>
+        <img
+            src="image/goa.png" height="1642px"
+            alt>
+    </body>
+</html>
